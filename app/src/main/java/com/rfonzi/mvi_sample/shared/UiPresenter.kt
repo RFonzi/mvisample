@@ -20,6 +20,7 @@ class UiPresenter @Inject constructor(
     }
 
     suspend fun loadFirstPage(){
+        mutableModel.emit(FirstPage.Loading())
         val content = stuffInteractor.getStuff()
         val model = FirstPage.ContentVisible(
             listOfHorizontalStuff = content.map { it.asHorizontalStuff() },
@@ -29,6 +30,7 @@ class UiPresenter @Inject constructor(
     }
 
     suspend fun loadSecondPage() {
+        mutableModel.emit(SecondPage.Loading())
         val things = thingInteractor.getThings()
         val model = SecondPage.ThingsVisible(
             chosenThing = null,
@@ -38,6 +40,7 @@ class UiPresenter @Inject constructor(
     }
 
     suspend fun updateSelectedThing(newThing: Thing) {
+        // Replace line below with actual state machine impl
         val screen = mutableModel.value as? SecondPage.ThingsVisible ?: return
 
         mutableModel.emit(

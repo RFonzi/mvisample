@@ -8,6 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import com.rfonzi.mvi_sample.R
 import com.rfonzi.mvi_sample.databinding.ActivityMainBinding
 import com.rfonzi.mvi_sample.shared.*
+import com.rfonzi.mvi_sample.shared.uiIntents.LoadFirstPageIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.LoadSecondPageIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.MainIntent
+import com.rfonzi.mvi_sample.shared.uiModels.FirstPage
+import com.rfonzi.mvi_sample.shared.uiModels.InitialLoading
+import com.rfonzi.mvi_sample.shared.uiModels.MainScreen
+import com.rfonzi.mvi_sample.shared.uiModels.SecondPage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -29,10 +36,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         lifecycleScope.launch {
+
+            // Render incoming ui models
             mainPresenter.model
                 .onEach { render(it) }
                 .launchIn(this@launch)
 
+
+            // Listen to user intents
             merge(
                 flowOf(LoadFirstPageIntent()),
                 binding.secondPage.intents,
@@ -57,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun renderInitialLoading() {
-
+        // lol
     }
 
     fun renderFirstPage(screen: FirstPage) {

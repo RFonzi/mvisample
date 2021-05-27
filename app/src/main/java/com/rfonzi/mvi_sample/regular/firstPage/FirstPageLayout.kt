@@ -7,7 +7,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rfonzi.mvi_sample.databinding.LayoutFirstPageBinding
-import com.rfonzi.mvi_sample.shared.FirstPage
+import com.rfonzi.mvi_sample.shared.uiModels.FirstPage
 
 class FirstPageLayout(context: Context, attributeSet: AttributeSet) : ConstraintLayout(context, attributeSet) {
 

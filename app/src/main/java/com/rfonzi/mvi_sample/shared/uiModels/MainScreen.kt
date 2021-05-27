@@ -1,8 +1,6 @@
-package com.rfonzi.mvi_sample.shared
+package com.rfonzi.mvi_sample.shared.uiModels
 
 import com.rfonzi.mvi_sample.shared.domainModels.ColorModel
-import com.rfonzi.mvi_sample.shared.uiModels.HorizontalDataModel
-import com.rfonzi.mvi_sample.shared.uiModels.VerticalDataModel
 
 sealed interface MainScreen
 

@@ -1,4 +1,4 @@
-package com.rfonzi.mvi_sample.shared
+package com.rfonzi.mvi_sample.shared.domainInteractors
 
 import com.rfonzi.mvi_sample.shared.domainModels.DataModel
 import kotlinx.coroutines.Dispatchers

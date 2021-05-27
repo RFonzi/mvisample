@@ -1,9 +1,14 @@
 package com.rfonzi.mvi_sample.shared
 
+import com.rfonzi.mvi_sample.shared.domainInteractors.ColorInteractor
+import com.rfonzi.mvi_sample.shared.domainInteractors.DataInteractor
 import com.rfonzi.mvi_sample.shared.domainModels.DataModel
 import com.rfonzi.mvi_sample.shared.domainModels.ColorModel
-import com.rfonzi.mvi_sample.shared.uiModels.HorizontalDataModel
-import com.rfonzi.mvi_sample.shared.uiModels.VerticalDataModel
+import com.rfonzi.mvi_sample.shared.uiIntents.LoadFirstPageIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.LoadSecondPageIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.MainIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.SelectThingIntent
+import com.rfonzi.mvi_sample.shared.uiModels.*
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 

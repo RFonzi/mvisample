@@ -1,5 +1,7 @@
 package com.rfonzi.mvi_sample.shared
 
+import com.rfonzi.mvi_sample.shared.domainInteractors.ColorInteractor
+import com.rfonzi.mvi_sample.shared.domainInteractors.DataInteractor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

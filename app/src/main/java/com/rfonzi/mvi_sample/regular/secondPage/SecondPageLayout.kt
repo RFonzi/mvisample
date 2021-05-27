@@ -10,9 +10,9 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rfonzi.mvi_sample.databinding.LayoutSecondPageBinding
-import com.rfonzi.mvi_sample.shared.MainIntent
-import com.rfonzi.mvi_sample.shared.SecondPage
-import com.rfonzi.mvi_sample.shared.SelectThingIntent
+import com.rfonzi.mvi_sample.shared.uiIntents.MainIntent
+import com.rfonzi.mvi_sample.shared.uiModels.SecondPage
+import com.rfonzi.mvi_sample.shared.uiIntents.SelectThingIntent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filterNotNull

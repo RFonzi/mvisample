@@ -1,19 +1,42 @@
 package com.rfonzi.mvi_sample.shared
 
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.*
+import javax.inject.Inject
 
-class UiPresenter {
+class UiPresenter @Inject constructor(
+    private val stuffInteractor: StuffInteractor
+) {
 
-    private val sampleScreen = MainScreen.FirstPage(
-        (1..1000).map {
-            Stuff(
-                it,
-                "Stuff #$it"
-            )
+    private val mutableModel: MutableStateFlow<MainScreen> = MutableStateFlow(InitialLoading())
+    val model: StateFlow<MainScreen> = mutableModel
+
+    suspend fun sendIntent(intent: MainIntent) {
+        when(intent) {
+            is LoadFirstPageIntent -> loadFirstPage()
         }
-    )
+    }
 
-    val model: StateFlow<MainScreen> = MutableStateFlow(sampleScreen)
+    suspend fun loadFirstPage(){
+        val content = stuffInteractor.getStuff()
+        val model = FirstPage.ContentVisible(
+            listOfHorizontalStuff = content.map { it.asHorizontalStuff() },
+            listOfVerticalStuff = content.map { it.asVerticalStuff() }
+        )
+        mutableModel.emit(model)
+    }
 
+    private fun Stuff.asVerticalStuff() : VerticalStuff {
+        return VerticalStuff(
+            id,
+            description,
+            data
+        )
+    }
+
+    private fun Stuff.asHorizontalStuff() : HorizontalStuff {
+        return HorizontalStuff(
+            id,
+            data
+        )
+    }
 }

@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.Group
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.rfonzi.mvi_sample.R
 import com.rfonzi.mvi_sample.databinding.ActivityMainBinding
 import com.rfonzi.mvi_sample.shared.*
@@ -23,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var uiPresenter: UiPresenter
+    lateinit var mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         lifecycleScope.launch {
-            uiPresenter.model
+            mainPresenter.model
                 .onEach { render(it) }
                 .launchIn(this@launch)
 
@@ -40,13 +37,12 @@ class MainActivity : AppCompatActivity() {
                 flowOf(LoadFirstPageIntent()),
                 binding.secondPage.intents,
                 observeBottomNavigation()
-
             ).distinctUntilChanged().onEach {
                 Log.d("Asdf", "Sent intent $it")
             }.onCompletion {
                 Log.d("Asdf", "Intent flow completed")
             }.collect {
-                uiPresenter.sendIntent(it)
+                mainPresenter.sendIntent(it)
             }
 
         }

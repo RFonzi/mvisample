@@ -10,17 +10,17 @@ import dagger.hilt.components.SingletonComponent
 class AppModule {
 
     @Provides
-    fun uiPresenter(stuffInteractor: StuffInteractor, thingInteractor: ThingInteractor): UiPresenter {
-        return UiPresenter(stuffInteractor, thingInteractor)
+    fun uiPresenter(dataInteractor: DataInteractor, colorInteractor: ColorInteractor): MainPresenter {
+        return MainPresenter(dataInteractor, colorInteractor)
     }
 
     @Provides
-    fun stuffInteractor(): StuffInteractor {
-        return StuffInteractor()
+    fun stuffInteractor(): DataInteractor {
+        return DataInteractor()
     }
 
     @Provides
-    fun thingInteractor(): ThingInteractor {
-        return ThingInteractor()
+    fun thingInteractor(): ColorInteractor {
+        return ColorInteractor()
     }
 }

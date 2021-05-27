@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.filterNotNull
 class SecondPageLayout(context: Context, attributeSet: AttributeSet) : ConstraintLayout(context, attributeSet) {
 
     private val binding = LayoutSecondPageBinding.inflate(LayoutInflater.from(context), this)
-    private val colorAdapter = ThingAdapter {
+    private val colorAdapter = ColorAdapter {
         mutableIntents.tryEmit(
             SelectThingIntent(it)
         )
@@ -36,7 +36,7 @@ class SecondPageLayout(context: Context, attributeSet: AttributeSet) : Constrain
     fun render(screen: SecondPage) {
         when(screen) {
             is SecondPage.Loading -> renderLoading()
-            is SecondPage.ThingsVisible -> renderThings(screen)
+            is SecondPage.ColorsVisible -> renderThings(screen)
         }
     }
 
@@ -49,12 +49,12 @@ class SecondPageLayout(context: Context, attributeSet: AttributeSet) : Constrain
         binding.secondPageLoading.visibility = View.VISIBLE
     }
 
-    private fun renderThings(screen: SecondPage.ThingsVisible) {
+    private fun renderThings(screen: SecondPage.ColorsVisible) {
         binding.colorListView.visibility = View.VISIBLE
         binding.selectedColorCard.visibility = View.VISIBLE
         binding.secondPageLoading.visibility = View.GONE
 
-        screen.chosenThing?.color?.let { colorString ->
+        screen.chosenColorModel?.color?.let { colorString ->
             val animator = ValueAnimator.ofArgb(binding.selectedColorCard.cardBackgroundColor.defaultColor, Color.parseColor(colorString))
             animator.setEvaluator(ArgbEvaluator())
             animator.addUpdateListener {
@@ -63,6 +63,6 @@ class SecondPageLayout(context: Context, attributeSet: AttributeSet) : Constrain
             animator.start()
         }
 
-        colorAdapter.submitList(screen.listOfThings)
+        colorAdapter.submitList(screen.listOfColorModels)
     }
 }

@@ -1,15 +1,17 @@
 package com.rfonzi.mvi_sample.shared
 
+import com.rfonzi.mvi_sample.shared.domainModels.ColorModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ThingInteractor @Inject constructor() {
+class ColorInteractor @Inject constructor() {
 
-    suspend fun getThings(): List<Thing> {
+    suspend fun getThings(): List<ColorModel> {
         return withContext(Dispatchers.IO) {
 
+            // simulate network response time
             delay(1000)
 
             listOf(
@@ -30,7 +32,7 @@ class ThingInteractor @Inject constructor() {
                 "orange" to "#FF9800",
                 "deep orange" to "#FF5722"
             ).mapIndexed { index, pair ->
-                Thing(
+                ColorModel(
                     id = index,
                     description = pair.first,
                     color = pair.second

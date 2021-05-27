@@ -1,9 +1,8 @@
-package com.rfonzi.mvi_sample.shared
+package com.rfonzi.mvi_sample.shared.uiModels
 
 import kotlin.random.Random
 
-data class Stuff(
+data class HorizontalDataModel(
     val id: Int,
-    val description: String,
     val data: Long = Random(id).nextLong()
 )

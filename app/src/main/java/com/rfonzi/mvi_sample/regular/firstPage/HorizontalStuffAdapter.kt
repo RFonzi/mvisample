@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.rfonzi.mvi_sample.R
-import com.rfonzi.mvi_sample.shared.HorizontalStuff
+import com.rfonzi.mvi_sample.shared.uiModels.HorizontalDataModel
 
-class HorizontalStuffAdapter(initialList: List<HorizontalStuff> = listOf()) : ListAdapter<HorizontalStuff, HorizontalStuffViewHolder>(
+class HorizontalStuffAdapter(initialList: List<HorizontalDataModel> = listOf()) : ListAdapter<HorizontalDataModel, HorizontalStuffViewHolder>(
     DIFF_CALLBACK
 ) {
 
@@ -17,7 +17,7 @@ class HorizontalStuffAdapter(initialList: List<HorizontalStuff> = listOf()) : Li
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalStuffViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horizontal_stuff, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horizontal_data, parent, false)
         return HorizontalStuffViewHolder(view)
     }
 
@@ -26,13 +26,13 @@ class HorizontalStuffAdapter(initialList: List<HorizontalStuff> = listOf()) : Li
     }
 
     companion object {
-        val DIFF_CALLBACK: DiffUtil.ItemCallback<HorizontalStuff>
-            get() = object : DiffUtil.ItemCallback<HorizontalStuff>() {
-                override fun areItemsTheSame(oldItem: HorizontalStuff, newItem: HorizontalStuff): Boolean {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<HorizontalDataModel>
+            get() = object : DiffUtil.ItemCallback<HorizontalDataModel>() {
+                override fun areItemsTheSame(oldItem: HorizontalDataModel, newItem: HorizontalDataModel): Boolean {
                     return oldItem.id == newItem.id
                 }
 
-                override fun areContentsTheSame(oldItem: HorizontalStuff, newItem: HorizontalStuff): Boolean {
+                override fun areContentsTheSame(oldItem: HorizontalDataModel, newItem: HorizontalDataModel): Boolean {
                     return oldItem == newItem
                 }
 

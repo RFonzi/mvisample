@@ -13,7 +13,7 @@ class FirstPageLayout(context: Context, attributeSet: AttributeSet) : Constraint
 
     private val binding: LayoutFirstPageBinding =
         LayoutFirstPageBinding.inflate(LayoutInflater.from(context), this)
-    private val verticalStuffAdapter = VerticalStuffAdapter()
+    private val verticalStuffAdapter = VerticalDataAdapter()
     private val horizontalStuffAdapter = HorizontalStuffAdapter()
 
     init {
@@ -27,7 +27,7 @@ class FirstPageLayout(context: Context, attributeSet: AttributeSet) : Constraint
 
     fun render(content: FirstPage) {
         when(content) {
-            is FirstPage.ContentVisible -> renderContent(content)
+            is FirstPage.DataVisible -> renderContent(content)
             is FirstPage.Loading -> renderLoading()
         }
     }
@@ -38,13 +38,13 @@ class FirstPageLayout(context: Context, attributeSet: AttributeSet) : Constraint
         binding.firstPageLoading.visibility = View.VISIBLE
     }
 
-    private fun renderContent(content: FirstPage.ContentVisible) {
+    private fun renderContent(data: FirstPage.DataVisible) {
         binding.verticalList.visibility = View.VISIBLE
         binding.horizontalList.visibility = View.VISIBLE
         binding.firstPageLoading.visibility = View.GONE
 
-        verticalStuffAdapter.submitList(content.listOfVerticalStuff)
-        horizontalStuffAdapter.submitList(content.listOfHorizontalStuff)
+        verticalStuffAdapter.submitList(data.listOfVerticalDataModel)
+        horizontalStuffAdapter.submitList(data.listOfHorizontalDatumModels)
     }
 
 }

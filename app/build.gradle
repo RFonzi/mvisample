@@ -16,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -30,9 +33,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        languageVersion = "1.5"
+        useIR = true
     }
     buildFeatures {
         viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerVersion = "1.4.32"
+        kotlinCompilerExtensionVersion compose_version
     }
 }
 
@@ -51,6 +61,12 @@ dependencies {
     implementation "io.github.reactivecircus.flowbinding:flowbinding-material:1.0.0"
 
     implementation 'com.google.dagger:hilt-android:2.35.1'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.activity:activity-compose:1.3.0-alpha08'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     kapt 'com.google.dagger:hilt-compiler:2.35.1'
     implementation 'androidx.multidex:multidex:2.0.1'
 

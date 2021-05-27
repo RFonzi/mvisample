@@ -12,10 +12,13 @@ sealed class FirstPage: MainScreen {
     ) : FirstPage()
 }
 
-data class SecondPage(
-    val chosenThing: Thing,
-    val listOfThings: List<Thing>
-) : MainScreen
+sealed class SecondPage() : MainScreen {
+    class Loading() : SecondPage()
+    data class ThingsVisible(
+        val chosenThing: Thing?,
+        val listOfThings: List<Thing>
+    ) : SecondPage()
+}
 
 class InitialLoading() : MainScreen
 

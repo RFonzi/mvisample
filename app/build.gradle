@@ -46,6 +46,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation "io.github.reactivecircus.flowbinding:flowbinding-android:1.0.0"
+    implementation "io.github.reactivecircus.flowbinding:flowbinding-recyclerview:1.0.0"
+    implementation "io.github.reactivecircus.flowbinding:flowbinding-material:1.0.0"
 
     implementation 'com.google.dagger:hilt-android:2.35.1'
     kapt 'com.google.dagger:hilt-compiler:2.35.1'

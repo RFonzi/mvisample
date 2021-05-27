@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/first_page"
+        android:id="@+id/menu_first_page"
         android:enabled="true"
         android:title="First Page" />
     <item
-        android:id="@+id/second_page"
+        android:id="@+id/menu_second_page"
         android:enabled="true"
         android:title="Second Page"/>
 </menu>

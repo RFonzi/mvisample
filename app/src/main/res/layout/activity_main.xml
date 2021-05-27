@@ -9,29 +9,24 @@
     <com.rfonzi.mvi_sample.regular.firstPage.FirstPageLayout
         android:id="@+id/first_page"
         android:layout_width="match_parent"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         android:layout_height="0dp" />
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/selected_color_card"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="40dp"-->
-<!--        app:cardElevation="8dp"/>-->
+    <com.rfonzi.mvi_sample.regular.secondPage.SecondPageLayout
+        android:id="@+id/second_page"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        android:layout_height="0dp" />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        app:layout_constraintTop_toBottomOf="@id/selected_color_card"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"-->
-<!--        android:id="@+id/color_list_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp" />-->
-
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        android:id="@+id/bottom_navigation"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:menu="@menu/bottom_nav_menu"/>-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

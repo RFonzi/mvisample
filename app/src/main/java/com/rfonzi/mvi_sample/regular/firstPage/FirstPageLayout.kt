@@ -43,8 +43,8 @@ class FirstPageLayout(context: Context, attributeSet: AttributeSet) : Constraint
         binding.horizontalList.visibility = View.VISIBLE
         binding.firstPageLoading.visibility = View.GONE
 
-        verticalStuffAdapter.submitList(data.listOfVerticalDataModel)
-        horizontalStuffAdapter.submitList(data.listOfHorizontalDatumModels)
+        verticalStuffAdapter.submitList(data.listOfVerticalDataModels)
+        horizontalStuffAdapter.submitList(data.listOfHorizontalDataModels)
     }
 
 }

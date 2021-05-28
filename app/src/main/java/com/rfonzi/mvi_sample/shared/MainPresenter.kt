@@ -32,8 +32,8 @@ class MainPresenter @Inject constructor(
         mutableModel.emit(FirstPage.Loading())
         val content = dataInteractor.getData()
         val model = FirstPage.DataVisible(
-            listOfHorizontalDatumModels = content.map { it.asHorizontalStuff() },
-            listOfVerticalDataModel = content.map { it.asVerticalStuff() }
+            listOfHorizontalDataModels = content.map { it.asHorizontalData() },
+            listOfVerticalDataModels = content.map { it.asVerticalData() }
         )
         mutableModel.emit(model)
     }
@@ -59,7 +59,7 @@ class MainPresenter @Inject constructor(
         )
     }
 
-    private fun DataModel.asVerticalStuff() : VerticalDataModel {
+    private fun DataModel.asVerticalData() : VerticalDataModel {
         return VerticalDataModel(
             id,
             description,
@@ -67,7 +67,7 @@ class MainPresenter @Inject constructor(
         )
     }
 
-    private fun DataModel.asHorizontalStuff() : HorizontalDataModel {
+    private fun DataModel.asHorizontalData() : HorizontalDataModel {
         return HorizontalDataModel(
             id,
             data

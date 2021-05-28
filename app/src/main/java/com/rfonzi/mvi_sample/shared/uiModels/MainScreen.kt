@@ -7,8 +7,8 @@ sealed interface MainScreen
 sealed class FirstPage: MainScreen {
     class Loading() : FirstPage()
     data class DataVisible(
-        val listOfVerticalDataModel: List<VerticalDataModel>,
-        val listOfHorizontalDatumModels: List<HorizontalDataModel>
+        val listOfVerticalDataModels: List<VerticalDataModel>,
+        val listOfHorizontalDataModels: List<HorizontalDataModel>
     ) : FirstPage()
 }
 

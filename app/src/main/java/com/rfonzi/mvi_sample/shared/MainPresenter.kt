@@ -18,7 +18,7 @@ class MainPresenter @Inject constructor(
 ) {
 
     private val mutableModel: MutableStateFlow<MainScreen> = MutableStateFlow(InitialLoading())
-    val model: Flow<MainScreen> = mutableModel
+    val model: StateFlow<MainScreen> = mutableModel
 
     suspend fun sendIntent(intent: MainIntent) {
         when(intent) {

@@ -15,22 +15,22 @@ class ColorInteractor @Inject constructor() {
             delay(1000)
 
             listOf(
-                "red" to "#F44336",
-                "pink" to "#E91E63",
-                "purple" to "#9C27B0",
-                "deep purple" to "#673AB7",
-                "indigo" to "#3F51B5",
-                "blue" to "#2196F3",
-                "light blue" to "#03A9F4",
-                "cyan" to "#00BCD4",
-                "teal" to "#009688",
-                "green" to "#4CAF50",
-                "light green" to "#8BC34A",
-                "lime" to "#CDDC39",
-                "yellow" to "#FFEB3B",
-                "amber" to "#FFC107",
-                "orange" to "#FF9800",
-                "deep orange" to "#FF5722"
+                "red" to 0xFFF44336,
+                "pink" to 0xFFE91E63,
+                "purple" to 0xFF9C27B0,
+                "deep purple" to 0xFF673AB7,
+                "indigo" to 0xFF3F51B5,
+                "blue" to 0xFF2196F3,
+                "light blue" to 0xFF03A9F4,
+                "cyan" to 0xFF00BCD4,
+                "teal" to 0xFF009688,
+                "green" to 0xFF4CAF50,
+                "light green" to 0xFF8BC34A,
+                "lime" to 0xFFCDDC39,
+                "yellow" to 0xFFFFEB3B,
+                "amber" to 0xFFFFC107,
+                "orange" to 0xFFFF9800,
+                "deep orange" to 0xFFFF5722
             ).mapIndexed { index, pair ->
                 ColorModel(
                     id = index,

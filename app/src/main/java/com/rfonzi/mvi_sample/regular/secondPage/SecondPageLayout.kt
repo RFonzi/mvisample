@@ -55,7 +55,7 @@ class SecondPageLayout(context: Context, attributeSet: AttributeSet) : Constrain
         binding.secondPageLoading.visibility = View.GONE
 
         screen.chosenColorModel?.color?.let { colorString ->
-            val animator = ValueAnimator.ofArgb(binding.selectedColorCard.cardBackgroundColor.defaultColor, Color.parseColor(colorString))
+            val animator = ValueAnimator.ofArgb(binding.selectedColorCard.cardBackgroundColor.defaultColor, colorString.toInt())
             animator.setEvaluator(ArgbEvaluator())
             animator.addUpdateListener {
                 binding.selectedColorCard.setCardBackgroundColor(it.animatedValue as Int)

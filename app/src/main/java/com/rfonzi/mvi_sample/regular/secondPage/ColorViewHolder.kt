@@ -11,7 +11,7 @@ class ColorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val binding = ItemColorBinding.bind(itemView)
 
     fun bind(colorModel: ColorModel) {
-        binding.colorBg.setBackgroundColor(Color.parseColor(colorModel.color))
+        binding.colorBg.setBackgroundColor(colorModel.color.toInt())
         binding.colorText.text = colorModel.description
     }
 }

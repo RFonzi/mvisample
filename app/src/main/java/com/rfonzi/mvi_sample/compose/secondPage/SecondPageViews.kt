@@ -16,6 +16,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -56,8 +58,11 @@ fun ColorsVisiblePage(
     clickedModel: (ColorModel) -> Unit
 ) {
     val defaultColor = MaterialTheme.colors.surface
+    val color: Color by remember {
+        mutableStateOf(Color(model.chosenColorModel?.color ?: defaultColor.value.toLong()))
+    }
     val selectedColor: Color by animateColorAsState(
-        targetValue = Color(model.chosenColorModel?.color ?: defaultColor.value.toLong()),
+        targetValue = color,
         animationSpec = tween(
             durationMillis = 200,
             easing = FastOutLinearInEasing
